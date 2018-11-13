@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+   
+    <div>
+        <h2>Search by ID</h2>
+        <input type="text" id="movieId" size="5" />
+        <input type="button" value="Search" onclick="find();" />
+        <p id="movie" />
+    </div>
+
+    <div>
+        <h2>Search by Genre</h2>
+        <input type="text" id="genre" size="5" />
+        <input type="button" value="Search" onclick="search();" />
+        <ul id="movie2" />
+    </div>
+  
+    
+
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script>
+        var uri = 'api/movie';
+
+    function find() {
+      var id = $('#movieId').val();
+        $.ajax({
+            type: 'GET',
+            url: uri + '/' + id,
+            success: function (data) {
+                $('#movie').text(formatItem(data));
+            }
+           
+        })
+    }
+
+    function search() {
+        var genre = $('#genre').val();
+        $.ajax({
+            type: 'GET',
+            url: uri + '?genre='+genre,
+            success: function (data) {
+                displayData(data);
+            }
+           
+        })
+    }
+
+    function displayData(data) {
+       
+        // On success, 'data' contains a list of movies.
+        $.each(data, function (key, item) {
+            // Add a list item for the product.
+            $('<li>', { text: formatItem(item) }).appendTo($('#movie2'));
+        });
+    }
+    function formatItem(item) {
+        return item.Id + ':' + item.Name + ':' + item.Genre + ':' + item.Year;
+    }
+
+    </script>
+</body>
+</html>

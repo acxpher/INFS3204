@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MVC3.ServiceReference1.Book>
+@{  ViewBag.Title = "SearchBook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SearchBook Result</h2>
+<form action="/Book/SearchBook" method="post">
+    <select type="dropdownlist" id="selected" name="selected">
+        <option value="Name">Name</option>
+        <option value="ID">ID</option>
+        <option value="Year">Year</option>
+        <option value="Author">Author</option>
+    </select>
+    <input type="text" name="input" maxlength="50" required="required" />
+    <input type="submit" value="search" />
+</form>
+
+<table class="table table-bordered table-responsive table-hover">
+    <thead>
+        <tr>
+            <th>Num</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Year</th>
+            <th>Price</th>
+            <th>Stock</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{int a = 1; }
+        @foreach (var book in Model)
+        {
+            <tr>
+
+                <td> @(a++)</td>
+                <td> @book.ID</td>
+                <td> @book.name</td>
+                <td> @book.author</td>
+                <td> @book.year</td>
+                <td> @book.price</td>
+                <td> @book.stock</td>
+            </tr>
+        }
+    </tbody>
+</table>

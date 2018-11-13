@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MVC3.ServiceReference1.Book>
+@{
+    ViewBag.Title = "DeleteBook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DeleteBook</h2>
+
+<form action="/Book/DeleteBook" method="post">
+
+    <select type="dropdownlist" id="selected" name="selected">
+        <option value="Num">Num</option>
+        <option value="ID">ID</option>
+        <option value="Year">Year</option>
+    </select>
+    <input type="text" name="input" maxlength="10" required="required" />
+    <input type="submit" value="Delete" />
+</form>
+<table class="table table-bordered table-responsive table-hover">
+    <thead>
+        <tr>
+            <th>Num</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Year</th>
+            <th>Price</th>
+            <th>Stock</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{int a = 1; }
+        @foreach (var book in Model)
+        {
+            <tr>
+
+                <td> @(a++)</td>
+                <td> @book.ID</td>
+                <td> @book.name</td>
+                <td> @book.author</td>
+                <td> @book.year</td>
+                <td> @book.price</td>
+                <td> @book.stock</td>
+            </tr>
+        }
+    </tbody>
+</table>

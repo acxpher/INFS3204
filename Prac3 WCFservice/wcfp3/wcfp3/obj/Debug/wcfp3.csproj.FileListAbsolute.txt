@@ -1,0 +1,7 @@
+C:\Users\freddy\source\repos\wcfp3\wcfp3\bin\wcfp3.dll.config
+C:\Users\freddy\source\repos\wcfp3\wcfp3\bin\wcfp3.dll
+C:\Users\freddy\source\repos\wcfp3\wcfp3\bin\wcfp3.pdb
+C:\Users\freddy\source\repos\wcfp3\wcfp3\obj\Debug\wcfp3.csprojResolveAssemblyReference.cache
+C:\Users\freddy\source\repos\wcfp3\wcfp3\obj\Debug\wcfp3.csproj.CoreCompileInputs.cache
+C:\Users\freddy\source\repos\wcfp3\wcfp3\obj\Debug\wcfp3.dll
+C:\Users\freddy\source\repos\wcfp3\wcfp3\obj\Debug\wcfp3.pdb

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<MVC3.ServiceReference1.Book>
+@{
+    ViewBag.Title = "ShowAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>All Books</h2>
+<form action="/Book/SearchBook" method="post">
+    <select type="dropdownlist" id="selected" name="selected">
+        <option value="Name">Name</option>
+        <option value="ID">ID</option>
+        <option value="Year">Year</option>
+        <option value="Author">Author</option>
+    </select>
+    <input type="text" name="input" maxlength="10" required="required" />
+    <input type="submit" value="search" />
+</form>
+<br />
+
+<table class="table table-bordered table-responsive table-hover">
+    <thead>
+        <tr>
+            <th>Num</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Year</th>
+            <th>Price</th>
+            <th>Stock</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var book in Model)
+        {
+            <tr>
+
+                <td> @(ViewBag.index++)</td>
+                <td> @book.ID</td>
+                <td> @book.name</td>
+                <td> @book.author</td>
+                <td> @book.year</td>
+                <td> @book.price</td>
+                <td> @book.stock</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<form action="/Book/AddBook" method="POST">
+    ID:<input type="text" value="" name="ID" maxlength="20" required="required" />
+    Name:<input type="text" value="" name="Name" maxlength="30" required="required" />
+    Author:<input type="text" value="" name="Author" maxlength="50" required="required" />
+    Year:<input type="text" value="" name="Year" size="12" maxlength="4" required="required" />
+    Price:<input type="text" value="" name="Price" size="15" maxlength="10" required="required" />
+    Stock:<input type="text" value="" name="Stock" size="5" maxlength="10" required="required" />
+    <input type="submit" value="Add" />
+</form>
+
+<br />
+<form action="/Book/DeleteBook" method="POST">
+
+    <select type="dropdownlist" id="Selected" name="selected">
+        <option value="Num">Num</option>
+        <option value="ID">ID</option>
+        <option value="Year">Year</option>
+    </select>
+    <input type="text" name="input" maxlength="10" required="required" />
+    <input type="submit" value="Delete" />
+</form><br/>
+

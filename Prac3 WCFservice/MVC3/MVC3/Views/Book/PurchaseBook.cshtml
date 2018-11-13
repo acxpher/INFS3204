@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MVC3.ServiceReference1.Book>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Purchase</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var $fields = $('#fields');
+            $('#more').click(function (e) {
+                e.preventDefault();
+                $('<lable>Book Number:</lable><input type="text" name="number" required="required" /><lable>Amount: </lable><input type="text" name="amount" required="required"/><br/>').appendTo($fields);
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div>
+        <h1> Purchase Book </h1>
+        <form action="/Book/PurchaseBook" method="post">
+            <label name="Budget">Total Budget </label>
+            <input type="text" name="budget" maxlength="10" required="required" /> <span />
+            <button type="button" value="more" name="more" id="more">more</button>
+            <br />         
+            <lable>Book Number:</lable><input type="text" name="number" required="required" /><lable>Amount: </lable><input type="text" name="amount" required="required"/><br/>
+            <div id="fields"></div>
+            <input type="submit" value="purchase" /><label>@ViewBag.response</label>
+        </form>
+        
+    </div>
+</body>
+</html>

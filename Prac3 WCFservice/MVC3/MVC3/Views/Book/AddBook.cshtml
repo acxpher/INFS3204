@@ -1,0 +1,46 @@
+﻿@model IEnumerable<MVC3.ServiceReference1.Book>
+@{
+    ViewBag.Title = "AddBook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<br />
+<form action="/Book/AddBook" method="post">
+    ID:<input type="text" value="" name="ID" maxlength="20" required="required" />
+    Name:<input type="text" value="" name="Name" maxlength="30" required="required" />
+    Author:<input type="text" value="" name="Author" maxlength="50" required="required" />
+    Year:<input type="text" value="" name="Year" size="15" maxlength="4" required="required" />
+    Price:<input type="text" value="" name="Price" size="15" maxlength="10" required="required" />
+    Stock:<input type="text" value="" name="Stock" size="5" maxlength="10" required="required" />
+    <input type="submit" value="Add" />
+</form>
+<table class="table table-bordered table-responsive table-hover">
+    <thead>
+        <tr>
+            <th>Num</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Year</th>
+            <th>Price</th>
+            <th>Stock</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{int a = 1; }
+        @foreach (var book in Model)
+        {
+            <tr>
+
+                <td> @(a++)</td>
+                <td> @book.ID</td>
+                <td> @book.name</td>
+                <td> @book.author</td>
+                <td> @book.year</td>
+                <td> @book.price</td>
+                <td> @book.stock</td>
+            </tr>
+        }
+    </tbody>
+</table>
